@@ -1,4 +1,4 @@
-package com.jiangyunpeng.xyz.util;
+package com.jiangyunpeng.mode.iterator.group;
 
 /**
  * Created by jyp on 2017/10/17.
