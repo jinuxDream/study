@@ -1,7 +1,7 @@
-package com.jiangyunpeng.mode.state;
+package com.jiangyunpeng.mode.state.state;
 
 /**
- * Created by jyp on 2017/10/17.
+ * Created by jyp on 2017/10/23.
  */
 public class Test {
 
@@ -15,30 +15,19 @@ public class Test {
 
         System.out.println(gumballMachine);
 
-
         gumballMachine.insertQuarter();
-        gumballMachine.ejectQuarer();
         gumballMachine.turnCrank();
-
-        System.out.println(gumballMachine);
+        gumballMachine.insertQuarter();
+        gumballMachine.turnCrank();
 
         gumballMachine.insertQuarter();
         gumballMachine.turnCrank();
         gumballMachine.insertQuarter();
         gumballMachine.turnCrank();
-        gumballMachine.ejectQuarer();
-
-        System.out.println(gumballMachine);
-
-        gumballMachine.insertQuarter();
-        gumballMachine.insertQuarter();
-        gumballMachine.turnCrank();
-        gumballMachine.insertQuarter();
         gumballMachine.turnCrank();
         gumballMachine.insertQuarter();
         gumballMachine.turnCrank();
 
         System.out.println(gumballMachine);
-
     }
 }

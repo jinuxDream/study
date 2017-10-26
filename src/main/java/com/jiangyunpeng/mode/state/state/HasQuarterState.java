@@ -4,7 +4,6 @@ package com.jiangyunpeng.mode.state.state;
  * Created by jyp on 2017/10/18.
  */
 public class HasQuarterState implements State {
-
     GumballMachine gumballMachine;
 
     public HasQuarterState(GumballMachine gumballMachine) {
@@ -15,23 +14,18 @@ public class HasQuarterState implements State {
         System.out.println("已经有硬币！");
     }
 
+
     public void ejectQuarter() {
-        System.out.println("退出硬币成功!");
-        gumballMachine.setCurrentState(gumballMachine.getNoQuarterState());
+        System.out.println("Quarter returned ");
+        gumballMachine.setState(gumballMachine.getNoQuarterState());
     }
 
     public void turnCrank() {
-        System.out.println("转动了 手柄 ！");
+        System.out.println("you turned ...");
+        gumballMachine.setState(gumballMachine.getSoldState());
     }
 
     public void dispense() {
-        gumballMachine.count-- ;
-        if (gumballMachine.count == 0){
-            System.out.println("已经售空！");
-            gumballMachine.setCurrentState(gumballMachine.getSoldOutState());
-        }else{
-            gumballMachine.setCurrentState(gumballMachine.getNoQuarterState());
-            System.out.println("出售一件 ok");
-        }
+        System.out.println("no gumball dispensed");
     }
 }

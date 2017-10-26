@@ -1,7 +1,7 @@
 package com.jiangyunpeng.mode.state.state;
 
 /**
- * Created by jyp on 2017/10/18.
+ * Created by jyp on 2017/10/23.
  */
 public interface State {
 

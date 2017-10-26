@@ -1,59 +1,67 @@
 package com.jiangyunpeng.mode.state.state;
 
-/**
- * Created by jyp on 2017/10/18.
- */
 public class GumballMachine {
+    State soldOutState;
+    State noQuarterState;
+    State hasQuarterState;
+    State soldState;
 
-    private NoQuarterState noQuarterState;
-    private HasQuarterState hasQuarterState;
-    private SoldState soldState;
-    private NoQuarterState soldOutState;
+    State state = soldOutState;
+    int count = 0;
 
-    int count;
-    State currentState;
+    public GumballMachine(int numberGumballs) {
+        soldOutState = new SoldOutState(this);
+        noQuarterState = new NoQuerterState(this);
+        hasQuarterState = new HasQuarterState(this);
+        soldState = new SoldState(this);
+        this.count = numberGumballs;
 
-    public GumballMachine(int number) {
-
+        if (numberGumballs > 0){
+            state = noQuarterState;
+        }
     }
 
-    public NoQuarterState getNoQuarterState() {
-        return noQuarterState;
+    public void insertQuarter(){
+        state.insertQuarter();
     }
 
-    public void setNoQuarterState(NoQuarterState noQuarterState) {
-        this.noQuarterState = noQuarterState;
+    public void ejectQuarter(){
+        state.ejectQuarter();
     }
 
-    public HasQuarterState getHasQuarterState() {
-        return hasQuarterState;
+    public void turnCrank(){
+        state.turnCrank();
+        state.dispense();
     }
 
-    public void setHasQuarterState(HasQuarterState hasQuarterState) {
-        this.hasQuarterState = hasQuarterState;
+    public void setState(State state){
+        this.state = state;
     }
 
-    public SoldState getSoldState() {
-        return soldState;
+    public void releaseBall(){
+        System.out.println("a gunball comes rolling out the slot... ");
+        if (count != 0){
+            count --;
+        }
     }
 
-    public void setSoldState(SoldState soldState) {
-        this.soldState = soldState;
-    }
-
-    public NoQuarterState getSoldOutState() {
+    public State getSoldOutState() {
         return soldOutState;
     }
 
-    public void setSoldOutState(NoQuarterState soldOutState) {
-        this.soldOutState = soldOutState;
+    public State getNoQuarterState() {
+        return noQuarterState;
     }
 
-    public State getCurrentState() {
-        return currentState;
+    public State getHasQuarterState() {
+        return hasQuarterState;
     }
 
-    public void setCurrentState(State currentState) {
-        this.currentState = currentState;
+    public State getSoldState() {
+        return soldState;
+    }
+
+    public int getCount() {
+        return count;
     }
 }
