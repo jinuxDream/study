@@ -12,6 +12,5 @@ public class FutureTest {
         Thread.sleep(500);
         System.out.println("other down !");
         System.out.println("result : " + futureData.getResult());
-
     }
 }

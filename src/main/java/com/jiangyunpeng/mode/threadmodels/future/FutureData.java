@@ -19,7 +19,6 @@ public class FutureData implements Data{
 
     @Override
     public synchronized String getResult() {
-        System.out.println(!isReady);
         while (!isReady){
             try {
                 wait();
